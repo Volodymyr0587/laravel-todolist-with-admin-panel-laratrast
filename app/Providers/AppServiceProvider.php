@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Gate::define('edit-todo', function (User $user, Todo $todo) {
-            return $user->id === $todo->user_id;
+            return $todo->user->is($user);
         });
     }
 }
