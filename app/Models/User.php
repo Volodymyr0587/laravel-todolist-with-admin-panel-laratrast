@@ -52,4 +52,13 @@ class User extends Authenticatable implements LaratrustUser
     {
         return $this->hasMany(Todo::class);
     }
+
+    public function getRedirectRoute()
+    {
+        if ($this->hasRole('admin')) {
+            return 'admindashboard';
+        } elseif ($this->hasRole('todolistuser')) {
+            return 'userdashboard';
+        }
+    }
 }
