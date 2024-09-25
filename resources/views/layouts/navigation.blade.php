@@ -16,6 +16,9 @@
                         <x-nav-link :href="route('admindashboard')" :active="request()->routeIs('admindashboard')">
                             {{ __('Admin Dashboard') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('laratrust.roles-assignment.index')" :active="request()->routeIs('laratrust.roles-assignment.index')">
+                            {{ __('Admin Panel') }}
+                        </x-nav-link>
                     @elseif (auth()->user()->hasRole('todolistuser'))
                         <x-nav-link :href="route('userdashboard')" :active="request()->routeIs('userdashboard')">
                             {{ __('User Dashboard') }}
@@ -82,6 +85,9 @@
             @if (auth()->user()->hasRole('admin'))
             <x-responsive-nav-link :href="route('admindashboard')" :active="request()->routeIs('admindashboard')">
                 {{ __('Admin Dashboard') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('laratrust.roles-assignment.index')" :active="request()->routeIs('laratrust.roles-assignment.index')">
+                {{ __('Admin Panel') }}
             </x-responsive-nav-link>
             @elseif (auth()->user()->hasRole('todolistuser'))
             <x-responsive-nav-link :href="route('userdashboard')" :active="request()->routeIs('userdashboard')">
