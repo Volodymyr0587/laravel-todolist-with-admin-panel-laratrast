@@ -41,6 +41,9 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        // $user->addRole('admin'); //% uncomment when create (register new user) admin user
+        $user->addRole('todolistuser'); //% all users get role todolistuser when registered
+
         event(new Registered($user));
 
         Auth::login($user);

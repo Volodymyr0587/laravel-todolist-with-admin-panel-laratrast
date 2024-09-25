@@ -13,9 +13,11 @@ class TodoController extends Controller
      */
     public function index()
     {
-        $todos = auth()->user()->todos()->get();
-
-        return view('todos.index', compact('todos'));
+        if (auth()->user()->hasPermission('todo-create')) {
+            $todos = auth()->user()->todos()->get();
+            return view('todos.index', compact('todos'));
+        }
+        abort(403);
     }
 
     /**

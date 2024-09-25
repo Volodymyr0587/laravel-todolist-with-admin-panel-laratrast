@@ -15,9 +15,11 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('todos.index')" :active="request()->routeIs('todos.index')">
-                        {{ __('Todos') }}
-                    </x-nav-link>
+                    @if (auth()->user()->hasPermission('todo-create'))
+                        <x-nav-link :href="route('todos.index')" :active="request()->routeIs('todos.index')">
+                            {{ __('Todos') }}
+                        </x-nav-link>
+                    @endif
                 </div>
             </div>
 
@@ -73,9 +75,11 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('todos.index')" :active="request()->routeIs('todos.index')">
-                {{ __('Todos') }}
-            </x-responsive-nav-link>
+            @if (auth()->user()->hasPermission('todo-create'))
+                <x-responsive-nav-link :href="route('todos.index')" :active="request()->routeIs('todos.index')">
+                    {{ __('Todos') }}
+                </x-responsive-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->
