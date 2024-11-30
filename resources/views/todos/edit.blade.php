@@ -44,6 +44,15 @@
                             </div>
                             @enderror
 
+                            <div class="flex items-center gap-x-4">
+                                <label for="completed" class="mb-3 mt-3 block text-base font-medium text-black">
+                                    {{ __("Completed") }}:
+                                </label>
+                                <input id="completed" name="completed" type="checkbox" value="1"
+                                    @checked(old('completed', $todo->completed))
+                                    class="h-4 w-4 rounded border-gray-500 text-indigo-600 focus:ring-indigo-600">
+                            </div>
+
                         </div>
                         <button type="submit"
                                 class="inline-block border border-1 py-2 px-4 border-green-500 mb-6 bg-green-200">

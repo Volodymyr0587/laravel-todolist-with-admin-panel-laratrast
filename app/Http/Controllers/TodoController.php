@@ -35,8 +35,11 @@ class TodoController extends Controller
     {
         $formData = $request->validate([
             'title' => 'required|string|min:1|max:300',
-            'description' => 'required|string|min:1|max:1000'
+            'description' => 'required|string|min:1|max:1000',
+            'completed' => 'boolean:0,1,false,true',
         ]);
+
+        $formData['completed'] = $request->has('completed');
 
         auth()->user()->todos()->create($formData);
 
@@ -76,8 +79,11 @@ class TodoController extends Controller
 
         $formData = $request->validate([
             'title' => 'required|string|min:1|max:300',
-            'description' => 'required|string|min:1|max:1000'
+            'description' => 'required|string|min:1|max:1000',
+            'completed' => 'boolean:0,1,false,true',
         ]);
+
+        $formData['completed'] = $request->has('completed');
 
         $todo->update($formData);
 

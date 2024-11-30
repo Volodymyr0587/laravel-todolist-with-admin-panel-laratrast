@@ -10,7 +10,7 @@ class Todo extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'title', 'description'];
+    protected $fillable = ['user_id', 'title', 'description', 'completed'];
 
     public function user(): BelongsTo
     {

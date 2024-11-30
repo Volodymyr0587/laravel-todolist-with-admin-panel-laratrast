@@ -26,7 +26,8 @@
                             <li>
                                 <div class="flex justify-between items-center">
                                     <a href="{{ route('todos.show', $todo) }}"
-                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline hover:font-semibold">
+                                        @class(['font-medium text-blue-600 dark:text-blue-500 hover:underline hover:font-semibold',
+                                            'line-through hover:line-through hover:font-semibold' => $todo->completed])>
                                         {{ $todo->title }}
                                     </a>
                                     <div>
